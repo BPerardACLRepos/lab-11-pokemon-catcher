@@ -21,7 +21,7 @@ export function StringifyAndSet(KEY, array) {
 export function searchById(_id, array) {
     for (let item of array) {
         if (item._id === _id) {
-            return array.indexOf(item);
+            return item;
         }
     }
     return false;
@@ -33,9 +33,7 @@ export function updateSessionPokedex(pokemon) {
     const update = searchById(pokemon._id, sessionPokedex);
 
     if (update) {
-        console.log(sessionPokedex[update].seen);
-        sessionPokedex[update].seen++;
-        console.log(sessionPokedex[update].seen);
+        update.seen++;
     } else {
         const newEntry = {};
         newEntry._id = pokemon._id;

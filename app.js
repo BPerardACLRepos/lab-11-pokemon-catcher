@@ -1,6 +1,6 @@
-import { getAndParse, StringifyAndSet, updateSessionPokedex } from './data/data-utils.js';
+import { getAndParse, searchById, StringifyAndSet, updateSessionPokedex } from './data/data-utils.js';
 import staticPokemon from './data/pokemon.js';
-import { ENCOUNTER_POPULATION, TURNS } from './constants.js';
+import { ENCOUNTER_POPULATION, SESSION_POKEDEX, TURNS } from './constants.js';
 
 const pokemonEncounterDiv = document.querySelector('#pokemon-encounter-div');
 let encountered = [];
@@ -28,9 +28,20 @@ function playRound() {
 
         const img = document.createElement('img');
         img.src = pokemon.url_image;
+        img.alt = pokemon.pokebase;
 
         img.addEventListener('click', () => {
-            playRound();
+            const sessionPokedex = getAndParse(SESSION_POKEDEX);
+            const update = searchById(pokemon._id, sessionPokedex);
+            update.captured++;
+            StringifyAndSet(SESSION_POKEDEX, sessionPokedex);
+
+            turns--;
+            if (turns > 0) {
+                playRound();
+            } else {
+                window.location = './results/';
+            }
         });
         pokemonEncounterDiv.append(img);
     }
