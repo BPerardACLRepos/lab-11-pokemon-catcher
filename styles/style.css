@@ -22,6 +22,17 @@ body {
     background-color: var(--color2);
 }
 
+/* Header, Main, Footer */
+header {
+    letter-spacing: 15px;
+    display: flex;
+    justify-content: center;
+    font-size: 2.3rem;
+    font-weight: bold;
+    height: var(--header-height);
+    box-shadow: var(--shadow);
+}
+
 main {
     display: flex;
     flex-direction: column;
@@ -30,6 +41,18 @@ main {
     margin-bottom: calc(var(--footer-height));
 }
 
+  
+footer {
+    position: fixed;
+    width: 100%;
+    right: 20px;
+    bottom: 0;
+    height: var(--footer-height);
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* Sections */
 section {
     /* background-color: var(--color5); */
     width: 1000px;
@@ -45,18 +68,30 @@ section {
     border: solid 2px var(--color1);
 }
 
-header {
+/* Div IDs */
+#instructions {
     display: flex;
-    justify-content: center;
-    font-size: 2.3rem;
-    font-weight: bold;
-    height: var(--header-height);
-    box-shadow: var(--shadow);
+    justify-content: start;
+    background-color: #ffff00;
+    border: solid 2px #0000ff;
 }
 
+#pokemon-encounter-div {
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+#pokemon-encounter-div img {
+    width: 30%;
+}
+
+/* Individual Elements */
 h3 {
+    color: #f00;
     font-size: 1.8rem;
     font-weight: bold;
+    margin-left: 30px;
 }
 
 header img {
@@ -66,17 +101,12 @@ header img {
 p {
     margin: var(--gutter);
 }
-  
-footer {
-    position: fixed;
-    width: 100%;
-    right: 20px;
-    bottom: 0;
-    height: var(--footer-height);
-    display: flex;
-    justify-content: flex-end;
+
+strong {
+    font-weight: 900;
 }
 
+/* Classes */
 .hide {
     display: none;
 }
