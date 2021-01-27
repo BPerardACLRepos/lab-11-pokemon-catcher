@@ -1,4 +1,4 @@
-import { getAndParse, StringifyAndSet } from './data/data-utils.js';
+import { getAndParse, StringifyAndSet, updateSessionPokedex } from './data/data-utils.js';
 import staticPokemon from './data/pokemon.js';
 import { ENCOUNTER_POPULATION, TURNS } from './constants.js';
 
@@ -24,6 +24,8 @@ function playRound() {
 
     pokemonEncounterDiv.textContent = '';
     for (let pokemon of encountered) {
+        updateSessionPokedex(pokemon);
+
         const img = document.createElement('img');
         img.src = pokemon.url_image;
 
