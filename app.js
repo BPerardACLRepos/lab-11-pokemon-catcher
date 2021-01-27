@@ -17,7 +17,7 @@ function playRound() {
 
     for (let i = 0; i < ENCOUNTER_POPULATION; i++) {
         const pokemonIndex = Math.floor(Math.random() * wildPokemon.length);
-        encountered.push(wildPokemon.splice(pokemonIndex, 1));
+        encountered.push((wildPokemon.splice(pokemonIndex, 1))[0]);
     }
 
     wildPokemon = wildPokemon.concat(...holding);
@@ -25,7 +25,7 @@ function playRound() {
     pokemonEncounterDiv.textContent = '';
     for (let pokemon of encountered) {
         const img = document.createElement('img');
-        img.src = pokemon[0].url_image;
+        img.src = pokemon.url_image;
 
         img.addEventListener('click', () => {
             playRound();
