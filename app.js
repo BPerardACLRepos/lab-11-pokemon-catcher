@@ -22,12 +22,16 @@ function playRound() {
 
     wildPokemon = wildPokemon.concat(...holding);
 
+    pokemonEncounterDiv.textContent = '';
     for (let pokemon of encountered) {
         const img = document.createElement('img');
         img.src = pokemon[0].url_image;
+
+        img.addEventListener('click', () => {
+            playRound();
+        });
         pokemonEncounterDiv.append(img);
     }
 }
 
-playRound();
 playRound();
