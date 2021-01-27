@@ -22,3 +22,41 @@
 - Use local storage to show current session and lifetime sessions
 - Use same structure and different constants
 
+
+# Create Local Storage array from static data
+- retrieve and change to JSON
+
+# Randomly choose from local storage array
+- retrieve and parse
+- use pop() to keep out of next encounter
+- use ENCOUNTER_POPULATION constant to determine number per encounter
+- return ENCOUNTERED array to WILD-POKEMON array
+- stringify and set local storage
+
+# Take info from selected pokemon & save into Pokedex array
+- name, _id, image
+- add to Pokedex (session & all-time)
+- add to ENCOUNTERED array for holding
+- add images to page for current encounter
+
+# Add to Pokedex
+- check if object present, increment if yes, create if no
+{
+    _id: initialize/leave
+    name: initialize/leave
+    image: initialize/leave
+    *encountered: increment
+    captured: initialize/leave
+}
+
+# Encountered array
+- contains current encountered pokemon
+
+# Render images and add click handlers
+
+# Increment caught
+- increment caught
+- check turns
+- repeat
+- send to results page when turns run out
+
